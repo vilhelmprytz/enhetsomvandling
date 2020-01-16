@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Enhetsomvandling",
+  "name": "Ett enklare sätt att omvandla enheter!",
   "icons": [
     {
       "src": "favicon.ico",
