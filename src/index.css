@@ -25,18 +25,18 @@ input {
   background-color: #282c34;
   border: 0px;
   color: white;
-  font-size: calc(10px + 1.5vmin);
+  font-size: calc(10px + 3vmin);
   font-family: "Times New Roman", serif;
-  width: 100px;
+  width: 200px;
 }
 
 select {
   background-color: #282c34;
   border: 0px;
   color: white;
-  font-size: calc(10px + 1.5vmin);
+  font-size: calc(10px + 3vmin);
   font-family: "Times New Roman", serif;
-  width: calc(10px + 5vmin);
+  width: 100px;
 }
 
 form {

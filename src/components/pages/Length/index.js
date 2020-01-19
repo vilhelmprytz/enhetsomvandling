@@ -6,29 +6,56 @@ import { Link } from "react-router-dom";
 
 const units = ["m", "dm", "cm", "mm"];
 
-function unit_multiplier(first, second) {}
+function power(unit) {
+  if (unit === "m") {
+    return 1;
+  }
+  if (unit === "dm") {
+    return 2;
+  }
+  if (unit === "cm") {
+    return 3;
+  }
+  if (unit === "mm") {
+    return 4;
+  }
+}
 
 function LengthPage() {
   const [firstValue, setFirstValue] = useState("0");
-  const [firstUnit, setFirstUnit] = useState("");
+  const [firstUnit, setFirstUnit] = useState("m");
 
   const [secondValue, setSecondValue] = useState("0");
-  const [secondUnit, setSecondUnit] = useState("");
+  const [secondUnit, setSecondUnit] = useState("m");
 
   const handleFirstValue = e => {
     setFirstValue(e.currentTarget.value);
+    setSecondValue(
+      e.currentTarget.value * Math.pow(10, power(secondUnit) - power(firstUnit))
+    );
   };
 
   const handleFirstUnit = e => {
     setFirstUnit(e.currentTarget.value);
+    setSecondValue(
+      firstValue *
+        Math.pow(10, power(secondUnit) - power(e.currentTarget.value))
+    );
   };
 
   const handleSecondValue = e => {
     setSecondValue(e.currentTarget.value);
+    setFirstValue(
+      e.currentTarget.value * Math.pow(10, power(firstUnit) - power(secondUnit))
+    );
   };
 
   const handleSecondUnit = e => {
     setSecondUnit(e.currentTarget.value);
+    setFirstValue(
+      secondValue *
+        Math.pow(10, power(firstUnit) - power(e.currentTarget.value))
+    );
   };
 
   return (
