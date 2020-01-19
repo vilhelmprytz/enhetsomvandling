@@ -12,6 +12,9 @@ function IndexPage() {
       <Link to="/length">
         <Button>Längd</Button>
       </Link>
+      <Link to="/area">
+        <Button>Area</Button>
+      </Link>
     </div>
   );
 }

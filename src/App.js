@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
 
-import LengthPage from "./components/pages/Length";
 import IndexPage from "./components/pages/Index";
+import LengthPage from "./components/pages/Length";
+import AreaPage from "./components/pages/Area";
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/length">
             <LengthPage />
+          </Route>
+          <Route path="/area">
+            <AreaPage />
           </Route>
         </Switch>
       </div>

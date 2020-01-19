@@ -6,29 +6,29 @@ import "katex/dist/katex.min.css";
 import { InlineMath } from "react-katex";
 import { Link } from "react-router-dom";
 
-const units = ["m", "dm", "cm", "mm"];
+const units = ["m^2", "dm^2", "cm^2", "mm^2"];
 
 function power(unit) {
-  if (unit === "m") {
+  if (unit === "m^2") {
     return 1;
   }
-  if (unit === "dm") {
-    return 2;
-  }
-  if (unit === "cm") {
+  if (unit === "dm^2") {
     return 3;
   }
-  if (unit === "mm") {
-    return 4;
+  if (unit === "cm^2") {
+    return 5;
+  }
+  if (unit === "mm^2") {
+    return 7;
   }
 }
 
-function LengthPage() {
+function AreaPage() {
   const [firstValue, setFirstValue] = useState("0");
-  const [firstUnit, setFirstUnit] = useState("m");
+  const [firstUnit, setFirstUnit] = useState("m^2");
 
   const [secondValue, setSecondValue] = useState("0");
-  const [secondUnit, setSecondUnit] = useState("m");
+  const [secondUnit, setSecondUnit] = useState("m^2");
 
   const handleFirstValue = e => {
     setFirstValue(e.currentTarget.value);
@@ -62,7 +62,7 @@ function LengthPage() {
 
   return (
     <div className="App">
-      <h1>Längd</h1>
+      <h1>Area</h1>
       <Link to="/">
         <Button>Tillbaka till startsidan</Button>
       </Link>
@@ -111,4 +111,4 @@ function LengthPage() {
   );
 }
 
-export default LengthPage;
+export default AreaPage;

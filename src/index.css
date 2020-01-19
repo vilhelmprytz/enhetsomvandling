@@ -8,8 +8,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, p {
+h1, p, span {
   color: white;
+}
+
+span {
+  font-size: calc(10px + 2vmin);
+}
+
+h1, p {
   margin: 5px;
 }
 
