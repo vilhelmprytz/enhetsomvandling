@@ -15,6 +15,9 @@ function IndexPage() {
       <Link to="/area">
         <Button>Area</Button>
       </Link>
+      <Link to="/volume">
+        <Button>Volym</Button>
+      </Link>
     </div>
   );
 }

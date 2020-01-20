@@ -4,6 +4,7 @@ import "./App.css";
 import IndexPage from "./components/pages/Index";
 import LengthPage from "./components/pages/Length";
 import AreaPage from "./components/pages/Area";
+import VolumePage from "./components/pages/Volume";
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/area">
             <AreaPage />
+          </Route>
+          <Route path="/volume">
+            <VolumePage />
           </Route>
         </Switch>
       </div>
