@@ -54,10 +54,7 @@ function LengthPage() {
 
   const handleSecondUnit = e => {
     setSecondUnit(e.currentTarget.value);
-    setFirstValue(
-      secondValue *
-        Math.pow(10, power(firstUnit) - power(e.currentTarget.value))
-    );
+    setSecondValue(firstValue * Math.pow(10, power(e.currentTarget.value) - power(firstUnit)));
   };
 
   return (
@@ -105,7 +102,7 @@ function LengthPage() {
         </form>
       </div>
       <InlineMath>
-        {String.raw`${firstValue} \ ${firstUnit} = ${secondValue} \ ${secondUnit}`}
+        {String.raw`${firstValue} \ ${firstUnit} \cdot 10^{${power(secondUnit) - power(firstUnit)}} = ${secondValue} \ ${secondUnit}`}
       </InlineMath>
     </div>
   );
