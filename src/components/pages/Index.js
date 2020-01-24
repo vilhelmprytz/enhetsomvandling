@@ -2,7 +2,19 @@ import React from "react";
 
 import Button from "../Button";
 
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
+
+const Icon = styled.div`
+  margin: 0.75rem;
+  color: white;
+  font-size: 1.5rem;
+
+  svg {
+    cursor: pointer;
+  }
+`;
 
 function IndexPage() {
   return (
@@ -18,6 +30,16 @@ function IndexPage() {
       <Link to="/volume">
         <Button>Volym</Button>
       </Link>
+      <Icon>
+        <FaGithub
+          onClick={() => {
+            window.open(
+              "https://github.com/VilhelmPrytz/enhetsomvandling",
+              "_blank"
+            );
+          }}
+        />
+      </Icon>
     </div>
   );
 }
