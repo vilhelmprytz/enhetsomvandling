@@ -1,5 +1,8 @@
 # Enhetsomvandling
 
+[![Build Status](https://travis-ci.com/VilhelmPrytz/enhetsomvandling.svg?branch=master)](https://travis-ci.com/VilhelmPrytz/enhetsomvandling)
+[![License](https://img.shields.io/github/license/VilhelmPrytz/enhetsomvandling)](LICENSE)
+
 Source code of [enhetsomvandling.se](https://enhetsomvandling.se). Built using React.
 
 ## Running locally
