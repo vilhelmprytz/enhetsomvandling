@@ -5,16 +5,16 @@ const units = ["m^3", "dm^3", "cm^3", "mm^3"];
 
 function power(unit) {
   if (unit === "m^3") {
-    return 1;
+    return 0;
   }
   if (unit === "dm^3") {
-    return 4;
+    return 3;
   }
   if (unit === "cm^3") {
-    return 7;
+    return 6;
   }
   if (unit === "mm^3") {
-    return 10;
+    return 9;
   }
 }
 

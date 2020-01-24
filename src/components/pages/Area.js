@@ -5,16 +5,16 @@ const units = ["m^2", "dm^2", "cm^2", "mm^2"];
 
 function power(unit) {
   if (unit === "m^2") {
-    return 1;
+    return 0;
   }
   if (unit === "dm^2") {
-    return 3;
+    return 2;
   }
   if (unit === "cm^2") {
-    return 5;
+    return 4;
   }
   if (unit === "mm^2") {
-    return 7;
+    return 6;
   }
 }
 

@@ -5,16 +5,16 @@ const units = ["m", "dm", "cm", "mm"];
 
 function power(unit) {
   if (unit === "m") {
-    return 1;
+    return 0;
   }
   if (unit === "dm") {
-    return 2;
+    return 1;
   }
   if (unit === "cm") {
-    return 3;
+    return 2;
   }
   if (unit === "mm") {
-    return 4;
+    return 3;
   }
 }
 
