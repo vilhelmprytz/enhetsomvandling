@@ -1,39 +1,23 @@
 import React, { useState } from "react";
 
-import Button from "../../Button";
+import Button from "./Button";
 
 import "katex/dist/katex.min.css";
 import { InlineMath } from "react-katex";
 import { Link } from "react-router-dom";
 
-const units = ["m^3", "dm^3", "cm^3", "mm^3"];
-
-function power(unit) {
-  if (unit === "m^3") {
-    return 1;
-  }
-  if (unit === "dm^3") {
-    return 4;
-  }
-  if (unit === "cm^3") {
-    return 7;
-  }
-  if (unit === "mm^3") {
-    return 10;
-  }
-}
-
-function VolumePage() {
+function Core(props) {
   const [firstValue, setFirstValue] = useState("0");
-  const [firstUnit, setFirstUnit] = useState("m^3");
+  const [firstUnit, setFirstUnit] = useState(props.initialValue);
 
   const [secondValue, setSecondValue] = useState("0");
-  const [secondUnit, setSecondUnit] = useState("m^3");
+  const [secondUnit, setSecondUnit] = useState(props.initialValue);
 
   const handleFirstValue = e => {
     setFirstValue(e.currentTarget.value);
     setSecondValue(
-      e.currentTarget.value * Math.pow(10, power(secondUnit) - power(firstUnit))
+      e.currentTarget.value *
+        Math.pow(10, props.power(secondUnit) - props.power(firstUnit))
     );
   };
 
@@ -41,27 +25,35 @@ function VolumePage() {
     setFirstUnit(e.currentTarget.value);
     setSecondValue(
       firstValue *
-        Math.pow(10, power(secondUnit) - power(e.currentTarget.value))
+        Math.pow(
+          10,
+          props.power(secondUnit) - props.power(e.currentTarget.value)
+        )
     );
   };
 
   const handleSecondValue = e => {
     setSecondValue(e.currentTarget.value);
     setFirstValue(
-      e.currentTarget.value * Math.pow(10, power(firstUnit) - power(secondUnit))
+      e.currentTarget.value *
+        Math.pow(10, props.power(firstUnit) - props.power(secondUnit))
     );
   };
 
   const handleSecondUnit = e => {
     setSecondUnit(e.currentTarget.value);
     setSecondValue(
-      firstValue * Math.pow(10, power(e.currentTarget.value) - power(firstUnit))
+      firstValue *
+        Math.pow(
+          10,
+          props.power(e.currentTarget.value) - props.power(firstUnit)
+        )
     );
   };
 
   return (
     <div className="App">
-      <h1>Volym</h1>
+      <h1>{props.title}</h1>
       <Link to="/">
         <Button>Tillbaka till startsidan</Button>
       </Link>
@@ -75,7 +67,7 @@ function VolumePage() {
               value={firstValue}
             />
             <select onChange={handleFirstUnit}>
-              {units.map(unit => {
+              {props.units.map(unit => {
                 return (
                   <option key={unit} value={unit}>
                     {unit}
@@ -92,7 +84,7 @@ function VolumePage() {
               value={secondValue}
             />
             <select onChange={handleSecondUnit}>
-              {units.map(unit => {
+              {props.units.map(unit => {
                 return (
                   <option key={unit} value={unit}>
                     {unit}
@@ -104,11 +96,12 @@ function VolumePage() {
         </form>
       </div>
       <InlineMath>
-        {String.raw`${firstValue} \ ${firstUnit} \cdot 10^{${power(secondUnit) -
-          power(firstUnit)}} = ${secondValue} \ ${secondUnit}`}
+        {String.raw`${firstValue} \ ${firstUnit} \cdot 10^{${props.power(
+          secondUnit
+        ) - props.power(firstUnit)}} = ${secondValue} \ ${secondUnit}`}
       </InlineMath>
     </div>
   );
 }
 
-export default VolumePage;
+export default Core;
