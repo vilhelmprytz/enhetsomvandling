@@ -13,7 +13,7 @@ function Core(props) {
   const [secondValue, setSecondValue] = useState("0");
   const [secondUnit, setSecondUnit] = useState(props.initialValue);
 
-  const handleFirstValue = e => {
+  const handleFirstValue = (e) => {
     setFirstValue(e.currentTarget.value);
     setSecondValue(
       e.currentTarget.value *
@@ -21,7 +21,7 @@ function Core(props) {
     );
   };
 
-  const handleFirstUnit = e => {
+  const handleFirstUnit = (e) => {
     setFirstUnit(e.currentTarget.value);
     setSecondValue(
       firstValue *
@@ -32,7 +32,7 @@ function Core(props) {
     );
   };
 
-  const handleSecondValue = e => {
+  const handleSecondValue = (e) => {
     setSecondValue(e.currentTarget.value);
     setFirstValue(
       e.currentTarget.value *
@@ -40,7 +40,7 @@ function Core(props) {
     );
   };
 
-  const handleSecondUnit = e => {
+  const handleSecondUnit = (e) => {
     setSecondUnit(e.currentTarget.value);
     setSecondValue(
       firstValue *
@@ -67,7 +67,7 @@ function Core(props) {
               value={firstValue}
             />
             <select onChange={handleFirstUnit}>
-              {props.units.map(unit => {
+              {props.units.map((unit) => {
                 return (
                   <option key={unit} value={unit}>
                     {unit}
@@ -84,7 +84,7 @@ function Core(props) {
               value={secondValue}
             />
             <select onChange={handleSecondUnit}>
-              {props.units.map(unit => {
+              {props.units.map((unit) => {
                 return (
                   <option key={unit} value={unit}>
                     {unit}
@@ -96,9 +96,9 @@ function Core(props) {
         </form>
       </div>
       <InlineMath>
-        {String.raw`${firstValue} \ ${firstUnit} \cdot 10^{${props.power(
-          secondUnit
-        ) - props.power(firstUnit)}} = ${secondValue} \ ${secondUnit}`}
+        {String.raw`${firstValue} \ ${firstUnit} \cdot 10^{${
+          props.power(secondUnit) - props.power(firstUnit)
+        }} = ${secondValue} \ ${secondUnit}`}
       </InlineMath>
     </div>
   );
